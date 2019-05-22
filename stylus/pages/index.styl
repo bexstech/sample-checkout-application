@@ -5,7 +5,7 @@
 #home-wrapper
     position: relative
     width: 100%
-    max-width: 1366px
+    max-width: calc(1366px + 4em)
     margin: auto
     p.fake-paragraph
         display: inline-block
@@ -21,7 +21,7 @@
         height: 18px
         background-color: #3C3C3C
         border-radius: 5px
-        margin: 15px
+        margin: 15px 4px
     .product-wrap
         display: flex
         flex-direction: column
@@ -39,6 +39,7 @@
             .product-title
                 font-size: 25px
                 font-weight: bold
+                text-align: left
             .product-list-desc
                 position: relative
                 width: 215px
@@ -67,7 +68,8 @@
                         height: 8px
             .product-price
                 position: absolute
-                width: 215px
+                max-width: 215px
+                width: 40%
                 height: 100%
                 top: 0px
                 right: 0px
@@ -93,3 +95,48 @@
                     color: #EB5757
                 .product-price
                     background-color: #EB5757
+
+@media (max-width: 64em)
+    #home-wrapper
+        .product-wrap
+            height: 608px
+            .card-content
+                height: 100px
+                .product-title
+                    font-size: 22px
+                .product-list-desc
+                    width: 200px
+                    height: 70px
+                    margin-top: 8px
+                    .product-item-desc
+                        .fake-text
+                            width: 180px
+                .product-price
+                    max-width: 140px
+                    width: 30%
+                    font-size: 18px
+
+@media (max-width: 48em)
+    #home-wrapper
+        strong.fake-bold
+            float: left
+        .product-wrap
+            margin-top: 20px
+            margin-bottom: 20px
+            height: 360px
+            .card-content
+                padding: 21px
+                height: 68px
+                .product-title
+                    font-size: 16px
+                .product-list-desc
+                    height: 40px
+                    width: 290px
+                    max-width: 70%
+                    .product-item-desc
+                        .fake-text
+                            width: calc(100% - 12px)
+                        &:last-child
+                            display: none
+                .product-price
+                    font-size: 12px
