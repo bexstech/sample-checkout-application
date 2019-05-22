@@ -28,8 +28,8 @@ block content
                     .row.end-md.center-xs
                         .col-lg-10.col-xs-12
                             .product-wrap
-                                .card-content.product-blue
-                                    .product-title="Plano Mensal"
+                                .card-content.product-blue(onclick="hirePlan({desc:'" + full.description + "', price: " + full.price + ", size:'full'})")
+                                    .product-title= full.description
                                     .product-list-desc
                                         .product-item-desc
                                             .bullet
@@ -43,9 +43,9 @@ block content
                                         .product-item-desc
                                             .bullet
                                             .fake-text
-                                    .product-price="R$19,90"
-                                .card-content.product-pruple
-                                    .product-title="Plano Trimestral"
+                                    .product-price= "R$" + full.price.toFixed(2).toString().replace(".",",")
+                                .card-content.product-pruple(onclick="hirePlan({desc:'" + share.description + "', price: " + share.price + ", size:'share'})")
+                                    .product-title= share.description
                                     .product-list-desc
                                         .product-item-desc
                                             .bullet
@@ -59,9 +59,9 @@ block content
                                         .product-item-desc
                                             .bullet
                                             .fake-text
-                                    .product-price="R$49,90"
-                                .card-content.product-red
-                                    .product-title="Plano Anual"
+                                    .product-price= "R$" + share.price.toFixed(2).toString().replace(".",",")
+                                .card-content.product-red(onclick="hirePlan({desc:'" + light.description + "', price: " + light.price + ", size:'light'})")
+                                    .product-title= light.description
                                     .product-list-desc
                                         .product-item-desc
                                             .bullet
@@ -75,4 +75,8 @@ block content
                                         .product-item-desc
                                             .bullet
                                             .fake-text
-                                    .product-price="R$159,90"
+                                    .product-price= "R$" + light.price.toFixed(2).toString().replace(".",",")
+        form(method="POST" action="/checkout" id="hirePlan")
+            input(type="hidden" value="" name="description" id="description")
+            input(type="hidden" value="" name="price" id="price")
+            input(type="hidden" value="" name="size_checkout" id="sizeCheckout")

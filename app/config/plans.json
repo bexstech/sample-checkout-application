@@ -1,0 +1,14 @@
+{
+    "full": {
+        "description": "Plano Mensal",
+        "price": 19.90
+    },
+    "share": {
+        "description": "Plano Trimestral",
+        "price": 49.90
+    },
+    "light": {
+        "description": "Plano Anual",
+        "price": 159.90
+    }
+}

@@ -1,5 +1,5 @@
+const homepage = require('../controllers/homepage');
+
 module.exports = function(app){
-    app.get("/", function(req, res){
-        res.render('index',{});
-    });
+    app.get("/", homepage);
 }
