@@ -1,0 +1,55 @@
+#loader-wrapper
+    position: fixed
+    width: 100vw
+    height: 100vh
+    top: 0px
+    left: 0px
+    background-color: #F7F7F7
+    display: none
+    &.loading
+        display: block
+        animation: fade-in-loader 0.5s forwards
+#loader
+    position: absolute
+    width: 100px
+    height: 100px
+    border: solid 2px
+    border-radius: 100%
+    border-color: #4BDE95 #4BDE95 transparent transparent
+    margin: auto
+    top: 45%
+    left: 0%
+    right: 0%
+    animation: infinite-spin 2s linear infinite
+    &::before, &::after
+        content: ""
+        position: absolute
+        border: solid 2px
+        border-radius: 100%
+        border-color: #4BDE95 #4BDE95 transparent transparent
+        top: 0px
+        right: 0px
+        bottom: 0px
+        left: 0px
+        margin: auto
+    &::before
+        width: 80%
+        height: 80%
+        animation: infinite-spin 1500ms linear infinite
+    &::after
+        width: 60%
+        height: 60%
+        animation: infinite-spin 1s linear infinite
+
+@keyframes infinite-spin
+    from{
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+@keyframes fade-in-loader
+    from
+        opacity: 0
+    to
+        opacity: 1

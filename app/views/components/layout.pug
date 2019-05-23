@@ -37,7 +37,7 @@ html
     body
         header
             div#header-container
-                div#logo
+                a#logo(href="/" title="Página inicial")
                     img(src="/img/merchant-logo.png" alt="Merchant Logo")
                 nav#main-menu
                     a.item-menu
@@ -51,6 +51,8 @@ html
                         div#bottom-of-bread
         main#main-container
             block content
+            div#loader-wrapper
+                div#loader
         footer
             div#footer-container
                 div#merchant-info

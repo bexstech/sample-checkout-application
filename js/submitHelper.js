@@ -1,4 +1,8 @@
+import { setLoading } from './setLoading';
+
 const hirePlan = ({desc, price, size}) => {
+
+    setLoading();
 
     if(desc) {
         document.getElementById('description').value = desc;
