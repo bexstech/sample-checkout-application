@@ -1,0 +1,8 @@
+{
+    "installments": 3,
+    "due_date_rule": 5,
+    "confirm": true,
+    "soft_descriptor": "Demo Shop",
+    "checkout": true,
+    "quantity": 1
+}

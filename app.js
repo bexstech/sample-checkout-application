@@ -1,3 +1,4 @@
+require ('custom-env').env();
 var app = require("./config/express")();
 
 app.listen(3030, function(){
