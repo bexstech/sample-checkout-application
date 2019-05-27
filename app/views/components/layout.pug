@@ -32,8 +32,9 @@ html
             meta(name="msapplication-TileColor" content="#ffffff")
             meta(name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png")
             meta(name="theme-color" content="#ffffff")
-        block scripts
-            script(src="/bundle.js")
+            block scriptsHead
+                script(src="/bundle.js")
+                script(src="http://localhost:9191/pay-checkout-iframe-lib.js")
     body
         header
             div#header-container
@@ -56,3 +57,4 @@ html
         footer
             div#footer-container
                 div#merchant-info
+        block scriptsBody

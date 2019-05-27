@@ -12,6 +12,7 @@ function genDate(forwardsDay) {
 }
 
 module.exports = (amount, foreign_amount, description, consumer) => {
+        
     return {
         checkout: PAY_CHECKOUT.checkout,
         confirm: PAY_CHECKOUT.confirm,
@@ -19,8 +20,8 @@ module.exports = (amount, foreign_amount, description, consumer) => {
         due_date: genDate(PAY_CHECKOUT.due_date_rule),
         soft_descriptor: PAY_CHECKOUT.soft_descriptor,
 
-        amount: parseFloat(amount).toFixed(2),
-        foreign_amount: parseFloat(foreign_amount).toFixed(2),
+        amount: parseFloat(amount),
+        foreign_amount: parseFloat(foreign_amount),
         cart: [
             {
                 description: description,

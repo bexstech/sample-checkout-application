@@ -11,8 +11,8 @@ module.exports = (req, res) => {
     const product = req.body;
 
     const getTokenPayload = {
-        "client_id": CONFIG_BEXS_PAY.client_id,
-        "client_secret": CONFIG_BEXS_PAY.client_secret,
+        "client_id": process.env.BEXS_API_CLIENT_ID,
+        "client_secret": process.env.BEXS_API_CLIENT_SECRET,
         "audience": CONFIG_BEXS_PAY.audience,
         "grant_type": CONFIG_BEXS_PAY.grant_type
     };
@@ -29,6 +29,8 @@ module.exports = (req, res) => {
         axios.get(CONFIG_BEXS_PAY.url.get_exchange_rate, requestConfig
         ).then((responseExchangeRate) => {
 
+            const rate = responseExchangeRate.data.quotes.find(quote => quote.symbol === process.env.EXCHANGE_RATE_TO).rate;
+
             const consumer = consumerDTO(
                 process.env.CONSUMER_ID,
                 process.env.CONSUMER_FULL_NAME,
@@ -42,10 +44,10 @@ module.exports = (req, res) => {
                 process.env.CONSUMER_ADDRESS_NEIGHBORHOOD,
                 process.env.CONSUMER_ADDRESS_ZIP_CODE
             );
-    
+
             axios.post(
                 CONFIG_BEXS_PAY.url.get_checkout,
-                checkoutPayloadDTO(product.price, responseExchangeRate.data.quotes.rate, product.description, consumer),
+                checkoutPayloadDTO(product.price, rate, product.description, consumer),
                 checkoutHeadersDTO(responseToken.data.token_type, responseToken.data.access_token)
             ).then((responseCheckout) => {
                 const size = product.size_checkout || 'full';

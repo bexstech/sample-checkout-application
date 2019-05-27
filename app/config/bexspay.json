@@ -1,6 +1,4 @@
 {
-    "client_id":"I3j3FiWgISg4NTvRuR0z7RClx86GKnpJ",
-    "client_secret":"bSqslZxVTWzNTd66ObCOreGuY3ygol4iHrKDWp3HoUTAQckqaYrL6oeC0gxy2Y4V",
     "audience":"https://payments-sandbox/v1/payments",
     "grant_type":"client_credentials",
     "url": {
