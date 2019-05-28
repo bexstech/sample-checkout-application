@@ -37,8 +37,8 @@ module.exports = (req, res) => {
                 process.env.CONSUMER_NATIONAL_ID,
                 process.env.CONSUMER_EMAIL,
                 process.env.CONSUMER_ADDRESS_COUNTRY,
-                process.env.CONSUMER_ADDRESS_CITY,
                 process.env.CONSUMER_ADDRESS_REGION,
+                process.env.CONSUMER_ADDRESS_CITY,
                 process.env.CONSUMER_ADDRESS_FULL_STREET_ADDRESS,
                 process.env.CONSUMER_ADDRESS_NUMBER,
                 process.env.CONSUMER_ADDRESS_NEIGHBORHOOD,
@@ -51,14 +51,14 @@ module.exports = (req, res) => {
                 checkoutHeadersDTO(responseToken.data.token_type, responseToken.data.access_token)
             ).then((responseCheckout) => {
                 const size = product.size_checkout || 'full';
-                res.render('checkout-' + size,{url_token: responseCheckout.data.redirect_url});
+                res.render('checkout-' + size, {url_token: responseCheckout.data.redirect_url, payment_id: responseCheckout.data.id});
             }).catch((errorCheckout) => {
                 console.log("errorCheckout", errorCheckout || "Ocurred a error");
                 res.redirect('/');
             });
 
         }).catch((errorExchangeRate) => {
-            console.log("errorExchangeRate", errorExchangeRate.data || "Ocurred a error");
+            console.log("errorExchangeRate:", errorExchangeRate || "Ocurred a error");
             res.redirect('/');
         });
 

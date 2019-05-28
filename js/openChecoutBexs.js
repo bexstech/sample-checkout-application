@@ -1,12 +1,14 @@
-const openCheckout = (urlProvidedByService) => {
+const openCheckout = (urlProvidedByService, paymentID) => {
     const options = {
-        paymentSuccess: () => {console.log("Payment Success")},
+        paymentSuccess: () => {
+            window.location = "/payment/" + paymentID;
+        },
         paymentFail: () => {console.log("Payment fail")},
         iframeFallback: () => {
-            console.log("Fallback Iframe");
+            window.location = "/failed";
         },
         changeOrder: () => {
-            console.log("Change Order");
+            window.location = "/";
         }
     }
 

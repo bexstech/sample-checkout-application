@@ -4,6 +4,7 @@
     "url": {
         "get_token": "https://bexs.auth0.com/oauth/token",
         "get_exchange_rate": "https://sandbox.bexs.com.br/v1/exchange-rate",
-        "get_checkout": "https://sandbox.bexs.com.br/v1/payments"
+        "get_checkout": "https://sandbox.bexs.com.br/v1/payments",
+        "get_payment_by_id": "https://sandbox.bexs.com.br/v1/payments"
     }
 }

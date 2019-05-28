@@ -27,5 +27,6 @@ block scriptsBody
     script.
         window.onload = function(){
             const urlLocal = "http://localhost:3030/" + "!{url_token}".replace("https://sandbox.bexs.com.br/", "")
-            window.openCheckout(urlLocal);
+            const paymentID = "!{payment_id}";
+            window.openCheckout(urlLocal, paymentID);
         }

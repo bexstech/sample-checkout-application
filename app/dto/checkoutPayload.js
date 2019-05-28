@@ -11,6 +11,10 @@ function genDate(forwardsDay) {
 
 }
 
+function getForeignAmount(amount, rate) {
+    return amount / rate;
+}
+
 module.exports = (amount, foreign_amount, description, consumer) => {
         
     return {
@@ -21,7 +25,7 @@ module.exports = (amount, foreign_amount, description, consumer) => {
         soft_descriptor: PAY_CHECKOUT.soft_descriptor,
 
         amount: parseFloat(amount),
-        foreign_amount: parseFloat(foreign_amount),
+        foreign_amount: getForeignAmount(parseFloat(amount), parseFloat(foreign_amount)),
         cart: [
             {
                 description: description,
