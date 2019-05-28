@@ -19,17 +19,12 @@ module.exports = (req, res) => {
         ).then((responseCheckoutFeedback) => {
             const { status, type } = responseCheckoutFeedback.data;
 
-            if(status === "AUTHORIZED" || status === "CONFIRMED") {
+            if (paymentSuccedded(status, type)){
                 res.render('success', {});
-            } 
-            
-            if(status === "WAITING_CONSUMER") {
-                if(type === "BANK_SLIP") { 
-                    res.render('success');
-                }
+            }else{
+                res.render('failed');
             }
             
-            res.render('failed');
         }).catch((errorCheckoutFeedback) => {
             console.log("errorCheckoutFeedback", errorCheckoutFeedback.data || "Ocurred a error");
             res.render('failed');
@@ -38,4 +33,8 @@ module.exports = (req, res) => {
         console.log("errorToken", errorToken.data || "Ocurred a error");
         res.render('failed');
     });
+}
+
+function paymentSuccedded(status, type){
+    return (status === "AUTHORIZED" || status === "CONFIRMED") || (status === "WAITING_CONSUMER" && type === "BANK_SLIP") 
 }

@@ -1,5 +1,8 @@
 extends components/layout.pug
 
+block titlepage
+    title="Demo Shop - Checkout share page"
+
 block content
     div#checkout-share
         div.container-fluid
@@ -26,7 +29,7 @@ block content
 block scriptsBody
     script.
         window.onload = function(){
-            const urlLocal = "http://localhost:3030/" + "!{url_token}".replace("https://sandbox.bexs.com.br/", "")
+            const urlLocal = "http://localhost:3030/" + "!{url_token}".replace("https://apis.bexs.com.br/", "")
             const paymentID = "!{payment_id}";
             window.openCheckout(urlLocal, paymentID);
         }

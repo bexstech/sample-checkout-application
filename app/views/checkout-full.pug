@@ -1,12 +1,15 @@
 extends components/layout.pug
 
+block titlepage
+    title="Demo Shop - Checkout full page"
+
 block content
     div#checkout-full
         div#iframe
 block scriptsBody
     script.
         window.onload = function(){
-            const urlLocal = "http://localhost:3030/" + "!{url_token}".replace("https://sandbox.bexs.com.br/", "")
+            const urlLocal = "http://localhost:3030/" + "!{url_token}".replace("https://apis.bexs.com.br/", "")
             const paymentID = "!{payment_id}";
             window.openCheckout(urlLocal, paymentID);
         }
