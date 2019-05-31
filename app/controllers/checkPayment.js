@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const CONFIG_BEXS_PAY = require('../config/bexspay');
-const checkoutHeadersDTO = require('../dto/checkoutHeaders');
+const checkoutHeadersDTO = require('../domains/checkoutHeaders');
 
 module.exports = (req, res) => {
     const paymentID = req.params.payment_id;

@@ -1,0 +1,15 @@
+{
+    "national_id": "00015262197",
+
+    "id": "id_of_on_my_base",
+    "full_name": "John Skywalker",
+    "email": "email@adomain.com",
+
+    "address_country": "BRA",
+    "address_region": "SP",
+    "address_city": "São Paulo",
+    "address_full_street_address": "Av. Paulista",
+    "address_number": 1000,
+    "address_neighborhood": "Bela Vista",
+    "address_zip_code": "01310940"
+}

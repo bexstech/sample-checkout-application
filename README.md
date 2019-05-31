@@ -1,13 +1,11 @@
 # 🏪 DEMO SHOP - Sample Application using Checkout Pay (Bexs PAY API + checkout-iframe.js)
 
-Este projeto é uma Aplicação de Exemplo que mostra como integrar na API da Bexs PAY no modulo de checkout.
-Aqui terão algumas práticas que servem como exemplo para o desenvolvedor. 
-Haverão algumas recomendações de como manter esta integração segura e sem riscos de exposição de dados.
+This project is an Sample Application that shows how to integrate onto the Bexs Payment API with checkout module. Here are some practices that serve as an guide for developers.
 
-Nosso site oficial para desenvolvedores que desejam integrar com nossos serviços. [Developers Bexs](https://developers.bexs.com.br)
+Our official website for developers who wish to integrate with our services. [Developers Bexs](https://developers.bexs.com.br)
 
-## Stacks utilizadas nesta aplicação de exemplo
-[![Nodejs](/img_readme/nodejs.png)](https://nodejs.org/en/)
+## Technologies used in this example application
+[![Nodejs](/img_readme/nodejs.png)](https://nodejs.org/)
 [![NPM](/img_readme/npm.png)](https://www.npmjs.com/)
 [![ExpressJS](/img_readme/express.png)](https://expressjs.com/)
 [![Axios](/img_readme/axios.png)](https://github.com/axios/axios)
@@ -15,32 +13,31 @@ Nosso site oficial para desenvolvedores que desejam integrar com nossos serviço
 [![Stylus](/img_readme/stylus.png)](http://stylus-lang.com/)
 [![Webpack](/img_readme/webpack.png)](https://webpack.js.org/)
 
-A Stack Tecnológica desta Aplicação de Exemplo não deve influenciar na decisão da sua Stack Tecnológica. As tecnologias escolhidas são popularmente conhecidas e de fácil entendimento. Utiliza basicamente de Javascript. Podemos resumir os papeis de cada técnologia utilizada neste projeto em grupos:
+The Technology of this Sample Application should not influence the decision of your Technological choice. The technologies chosen are popularly known and easily understood. It basically uses Javascript. 
 
+We can summarize the roles of each technique used in this project in groups:
 ### Backend:
-* Nodejs: Principal linguagem utilizada (javascript no backend);
-* Expressjs: Utilizado para manipular as requests de páginas vindas do browser (middleware);
-* Axios: O http client - através dele conectamos no Bexs Pay
+* Nodejs: Main programming language used (javascript on backend);
+* Expressjs: Used to handle page requests from browser (as the middleware);
+* Axios: A HTTP Client - through it we connect on Bexs Pay
 
 ### Frontend
-* Pugjs: Template HTML minimalista
-* Stylus: Um pré-processador CSS simples
-* Webopack: Empacota os códigos CSS e Javascript do site em um bundle único.
+* Pugjs: Minimalist HTML Template
+* Stylus: A simple CSS preprocessor
+* Webpack: It packs CSS and Javascript (just js of frontend) codes on a single bundle.
 
 ### Other:
-* NPM: gerenciador de pacotes do nodejs - semelhante ao maven, nuget, gradle, dep, ivy, etc
+* NPM: node package manager - similar to maven, nuget, gradle, dep, ivy, etc
 
-## 
+## What you need to do before running this application
+There is a set of presets to be made before running this application.
+First you need to create the key combination to gain access to services on the sandbox environment (more info [here](https://developers.bexs.com.br/api/pay#section/Introduction/Creating-your-User-to-Sandbox)), to do so, visit our developer portal and clicking on Sandbox >>>> [Developers Bexs](https://developers.bexs.com.br).
 
-### TODO List no Readme:
-Read me todo list  ⬜ ✅
-* ✅ Do que se trata o projeto
-* ✅ Explicar stacks
-    * ✅ npm
-    * ✅ nodejs
-    * ✅ express
-    * ✅ pugjs
-    * ✅ webpack
-    * ✅ Stylus    
-* ⬜ como cadastrar Client ID e Client Secret no environment
-* ⬜ como subir a aplicação
+After creating the keys, on root of this project contains a file named `.env`, fill on the variables according to the generated credentials `BEXS_API_CLIENT_ID` and `BEXS_API_CLIENT_SECRET`. We recommend when developing your real production application, use some technique to keep your key safe, preventing any leakage.
+
+## Running application
+* Install [Nodejs](https://nodejs.org/) higher version 9
+* run `npm install` on terminal
+* Post installing, run `npm start`
+
+Access on browser http://localhost:9000

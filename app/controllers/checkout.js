@@ -3,9 +3,12 @@ const axios = require('axios');
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const CONFIG_BEXS_PAY = require('../config/bexspay');
-const checkoutHeadersDTO = require('../dto/checkoutHeaders');
-const checkoutPayloadDTO = require('../dto/checkoutPayload');
-const consumerDTO = require('../dto/consumer');
+const CONSUMER_DATA   = require('../config/consumer');
+const EXCHANGE_RATE   = require('../config/exchange');
+
+const checkoutHeadersDTO = require('../domains/checkoutHeaders');
+const checkoutPayloadDTO = require('../domains/checkoutPayload');
+const consumerDTO        = require('../domains/consumer');
 
 module.exports = (req, res) => {
     const product = req.body;
@@ -17,32 +20,35 @@ module.exports = (req, res) => {
         "grant_type": CONFIG_BEXS_PAY.grant_type
     };
 
-    axios.post(CONFIG_BEXS_PAY.url.get_token, getTokenPayload, {"headers": {"content-type": "application/json"}}
+    axios.post(
+        CONFIG_BEXS_PAY.url.get_token, 
+        getTokenPayload, 
+        {"headers": {"content-type": "application/json"}}
     ).then((responseToken) => {
 
         let requestConfig = checkoutHeadersDTO(responseToken.data.token_type, responseToken.data.access_token);
         requestConfig['params'] = {
-            from: process.env.EXCHANGE_RATE_FROM,
-            to: process.env.EXCHANGE_RATE_TO
+            from: EXCHANGE_RATE.from,
+            to: EXCHANGE_RATE.to
         };
 
         axios.get(CONFIG_BEXS_PAY.url.get_exchange_rate, requestConfig
         ).then((responseExchangeRate) => {
 
-            const rate = responseExchangeRate.data.quotes.find(quote => quote.symbol === process.env.EXCHANGE_RATE_TO).rate;
+            const rate = responseExchangeRate.data.quotes.find(quote => quote.symbol === EXCHANGE_RATE.to).rate;
 
             const consumer = consumerDTO(
-                process.env.CONSUMER_ID,
-                process.env.CONSUMER_FULL_NAME,
-                process.env.CONSUMER_NATIONAL_ID,
-                process.env.CONSUMER_EMAIL,
-                process.env.CONSUMER_ADDRESS_COUNTRY,
-                process.env.CONSUMER_ADDRESS_REGION,
-                process.env.CONSUMER_ADDRESS_CITY,
-                process.env.CONSUMER_ADDRESS_FULL_STREET_ADDRESS,
-                process.env.CONSUMER_ADDRESS_NUMBER,
-                process.env.CONSUMER_ADDRESS_NEIGHBORHOOD,
-                process.env.CONSUMER_ADDRESS_ZIP_CODE
+                CONSUMER_DATA.id,
+                CONSUMER_DATA.full_name,
+                CONSUMER_DATA.national_id,
+                CONSUMER_DATA.email,
+                CONSUMER_DATA.address_country,
+                CONSUMER_DATA.address_region,
+                CONSUMER_DATA.address_city,
+                CONSUMER_DATA.address_full_street_address,
+                CONSUMER_DATA.address_number,
+                CONSUMER_DATA.address_neighborhood,
+                CONSUMER_DATA.address_zip_code
             );
 
             axios.post(

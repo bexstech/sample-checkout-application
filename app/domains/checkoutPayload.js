@@ -39,6 +39,6 @@ module.exports = (amount, foreign_amount, description, consumer) => {
             name: consumer.full_name
         },
 
-        redirect_url: process.env.CHECKOUT_REDIRECT_URL
+        redirect_url: PAY_CHECKOUT.redirect_url
     }
 }
