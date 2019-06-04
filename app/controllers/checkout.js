@@ -6,9 +6,9 @@ const CONFIG_BEXS_PAY = require('../config/bexspay');
 const CONSUMER_DATA   = require('../config/consumer');
 const EXCHANGE_RATE   = require('../config/exchange');
 
-const checkoutHeadersDTO = require('../domains/checkoutHeaders');
+const checkoutHeadersDomain = require('../domains/checkoutHeaders');
 const checkoutPayloadDTO = require('../domains/checkoutPayload');
-const consumerDTO        = require('../domains/consumer');
+const consumerDomain        = require('../domains/consumer');
 
 module.exports = (req, res) => {
     const product = req.body;
@@ -26,7 +26,7 @@ module.exports = (req, res) => {
         {"headers": {"content-type": "application/json"}}
     ).then((responseToken) => {
 
-        let requestConfig = checkoutHeadersDTO(responseToken.data.token_type, responseToken.data.access_token);
+        let requestConfig = checkoutHeadersDomain(responseToken.data.token_type, responseToken.data.access_token);
         requestConfig['params'] = {
             from: EXCHANGE_RATE.from,
             to: EXCHANGE_RATE.to
@@ -37,7 +37,7 @@ module.exports = (req, res) => {
 
             const rate = responseExchangeRate.data.quotes.find(quote => quote.symbol === EXCHANGE_RATE.to).rate;
 
-            const consumer = consumerDTO(
+            const consumer = consumerDomain(
                 CONSUMER_DATA.id,
                 CONSUMER_DATA.full_name,
                 CONSUMER_DATA.national_id,
@@ -54,7 +54,7 @@ module.exports = (req, res) => {
             axios.post(
                 CONFIG_BEXS_PAY.url.get_checkout,
                 checkoutPayloadDTO(product.price, rate, product.description, consumer),
-                checkoutHeadersDTO(responseToken.data.token_type, responseToken.data.access_token)
+                checkoutHeadersDomain(responseToken.data.token_type, responseToken.data.access_token)
             ).then((responseCheckout) => {
                 const size = product.size_checkout || 'full';
                 res.render('checkout-' + size, {url_token: responseCheckout.data.redirect_url, payment_id: responseCheckout.data.id});
