@@ -1,0 +1,77 @@
+#checkout-full, #checkout-share, #checkout-light
+    position: relative
+    width: 100%
+    min-height: calc(100vh - 158px)
+    #iframe
+        background-color: #ffffff
+
+#checkout-full
+    #iframe
+        min-height: calc(100vh - 158px)
+        iframe
+            min-height: calc(100vh - 162px)
+
+#checkout-share
+    position: relative
+    max-width: calc(1366px + 4em)
+    margin: auto
+    #iframe
+        display: flex
+        justify-content: center
+        margin-top: 65px
+        iframe
+            margin: auto
+            width: 100%
+            height: 100%
+    .card-content
+        margin-top: 65px
+        .row-divisor
+            position: relative
+            width: 100%
+            height: 2px
+            background-color: #707070
+            margin-top: 18px
+            margin-bottom: 18px
+        h3.fake-heading
+            position: relative
+            display: inline-block
+            width: 80%
+            height: 18px
+            background-color: #F7F7F7
+            border-radius: 5px
+            margin-top: 8px
+            margin-bottom: 0px
+        .fake-description
+            position: relative
+            display: inline-flex
+            width: 100%
+            height: 12px
+            margin-top: 5px
+            margin-bottom: 5px
+            justify-content: space-between            
+            .fake-label, .fake-price
+                height: 12px
+                background-color: #F7F7F7
+                border-radius: 5px
+            .fake-label
+                width: 70%
+            .fake-price
+                width: 20%
+            &.total-price
+                .fake-label, .fake-price
+                    background-color: #C9C9C9
+
+
+#iframe
+    width: 100%
+
+@media(max-width: 64em)
+    #checkout-full, #checkout-share, #checkout-light
+        min-height: calc(100vh - 70px)
+
+@media(max-width: 48em)
+    #checkout-full, #checkout-share, #checkout-light
+        min-height: calc(100vh - 46px)
+    #checkout-share
+        #iframe, .card-content
+            margin-top: 15px

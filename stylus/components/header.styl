@@ -1,0 +1,88 @@
+header
+    position: fixed
+    width: 100%
+    height: 90px
+    padding-right: 2rem
+    padding-left: 2rem
+    top: 0px
+    background-color: #FFFFFF
+    border-bottom: 1px solid #F7F7F7
+    box-sizing: border-box
+    display: flex
+    justify-content: center
+    z-index: 999
+    #header-container
+        position: relative
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 100%
+        width: 100%
+        max-width: 1366px
+        #logo
+            position: relative
+            display: block
+            width: 260px
+            height: 42px
+        nav#main-menu
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100%
+            max-width: 600px
+            height: 20px
+            .item-menu
+                display: inline-block
+                width: 100px
+                height: 18px
+                border-radius: 5px
+                background-color: #9c9c9c
+            #burger-menu
+                position: relative
+                display: none
+                width: 100%
+                height: 100%
+                cursor: pointer
+                #top-of-bread, #burger-meat, #bottom-of-bread
+                    position: absolute
+                    width: 100%
+                    height: 3px
+                    background-color: #3C3C3C
+                    border-radius: 5px
+                    margin: auto
+                #top-of-bread, #burger-meat
+                    top: 0px
+                #bottom-of-bread, #burger-meat
+                    bottom: 0px
+
+@media(max-width: 64em)
+    header
+        height: 70px
+        #header-container
+            #logo
+                width: 186px
+                height: 30px
+                img
+                    width: 100%
+            nav#main-menu
+                max-width: 430px
+                .item-menu
+                    width: 70px
+                    height: 12px
+                    border-radius: 3px
+
+@media(max-width: 48em)
+    header
+        height: 46px
+        #header-container
+            #logo
+                width: 160px
+                height: 26px
+            nav#main-menu
+                width: 26px
+                height: 17px
+                max-width: 26px
+                #burger-menu
+                    display: block
+                .item-menu
+                    display: none

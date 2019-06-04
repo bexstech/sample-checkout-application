@@ -1,0 +1,61 @@
+doctype html
+html
+    head
+        block titlepage
+            title="Demo Shop"
+        block viewport
+            meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        block opengraph
+            meta(name="description" content="A demonstration e-commerce using Lib Checkout powered by Bexs Pay")
+            meta(property="og:title" content="Bexs API Solutions")
+            meta(property="og:image" content="/img/merchant-logo.png")
+            meta(property="og:image:width" content="260")
+            meta(property="og:image:height" content="42")
+            meta(property="og:description" content="A demonstration e-commerce using Lib Checkout powered by Bexs Pay")
+            meta(property="og:url" content="https://demoshop.bexs.com.br")
+            meta(property="og:type" content="website")
+            meta(name="robots" content="no-index,follow")
+        block favicon
+            link(rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png")
+            link(rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png")
+            link(rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png")
+            link(rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png")
+            link(rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png")
+            link(rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png")
+            link(rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png")
+            link(rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png")
+            link(rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png")
+            link(rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png")
+            link(rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png")
+            link(rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png")
+            link(rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png")
+            link(rel="manifest" href="/manifest.json")
+            meta(name="msapplication-TileColor" content="#ffffff")
+            meta(name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png")
+            meta(name="theme-color" content="#ffffff")
+            block scriptsHead
+                script(src="/bundle.js")
+                script(src="https://apis.bexs.com.br/v1/lib/checkout-bexs.js")
+    body
+        header
+            div#header-container
+                a#logo(href="/" title="Página inicial")
+                    img(src="/img/merchant-logo.png" alt="Merchant Logo")
+                nav#main-menu
+                    a.item-menu
+                    a.item-menu
+                    a.item-menu
+                    a.item-menu
+                    a.item-menu
+                    div#burger-menu
+                        div#top-of-bread
+                        div#burger-meat
+                        div#bottom-of-bread
+        main#main-container
+            block content
+            div#loader-wrapper
+                div#loader
+        footer
+            div#footer-container
+                div#merchant-info
+        block scriptsBody

@@ -1,0 +1,144 @@
+#main-container
+    display: flex
+    justify-content: center
+    align-items: center
+#home-wrapper
+    position: relative
+    width: 100%
+    max-width: calc(1366px + 4em)
+    margin: auto
+    p.fake-paragraph
+        display: inline-block
+        width: 100%
+        height: 14px
+        background-color: #DFDFDF
+        border-radius: 5px
+        margin: 4px
+    strong.fake-bold
+        display: inline-block
+        width: 90%
+        max-width: 360px
+        height: 18px
+        background-color: #3C3C3C
+        border-radius: 5px
+        margin: 15px 4px
+    .product-wrap
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: stretch
+        width: 100%
+        height: 608px
+        margin-bottom: 30px
+        .card-content
+            height: 122px
+            border-radius: 10px
+            box-shadow: #00000046 0px 0px 0px
+            transition: box-shadow 0.3s ease
+            cursor: pointer
+            &:hover
+                box-shadow: #00000046 0px 5px 16px
+            .product-title
+                font-size: 25px
+                font-weight: bold
+                text-align: left
+            .product-list-desc
+                position: relative
+                width: 215px
+                height: 80px
+                margin-top: 12px
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                .product-item-desc
+                    position: relative
+                    width: 100%
+                    height: 8px
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    .bullet, .fake-text
+                        position: relative
+                        display: block
+                        background-color: #3C3C3C
+                        border-radius: 6px
+                    .bullet
+                        width: 6px
+                        height: 6px
+                    .fake-text
+                        width: 196px
+                        height: 8px
+            .product-price
+                position: absolute
+                max-width: 215px
+                width: 40%
+                height: 100%
+                top: 0px
+                right: 0px
+                border-radius: 10px
+                display: flex
+                justify-content: center
+                align-items: center
+                font-size: 21px
+                font-weight: bold
+                color: #ffffff
+            &.product-blue
+                .product-title
+                    color: #5792EB
+                .product-price
+                    background-color: #5792EB
+            &.product-pruple
+                .product-title
+                    color: #9E51BA
+                .product-price
+                    background-color: #9E51BA
+            &.product-red
+                .product-title
+                    color: #EB5757
+                .product-price
+                    background-color: #EB5757
+
+@media (max-width: 64em)
+    #home-wrapper
+        .product-wrap
+            height: 608px
+            .card-content
+                height: 100px
+                .product-title
+                    font-size: 22px
+                .product-list-desc
+                    width: 200px
+                    height: 70px
+                    margin-top: 8px
+                    .product-item-desc
+                        .fake-text
+                            width: 180px
+                .product-price
+                    max-width: 140px
+                    width: 30%
+                    font-size: 18px
+
+@media (max-width: 48em)
+    #home-wrapper
+        strong.fake-bold
+            float: left
+        .product-wrap
+            margin-top: 20px
+            margin-bottom: 20px
+            height: 360px
+            .card-content
+                padding: 21px
+                height: 68px
+                .product-title
+                    font-size: 16px
+                .product-list-desc
+                    height: 40px
+                    width: 290px
+                    max-width: 70%
+                    .product-item-desc
+                        .fake-text
+                            width: calc(100% - 12px)
+                        &:last-child
+                            display: none
+                .product-price
+                    font-size: 12px
