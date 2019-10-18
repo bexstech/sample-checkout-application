@@ -21,8 +21,8 @@ module.exports = (req, res) => {
     };
 
     axios.post(
-        CONFIG_BEXS_PAY.url.get_token, 
-        getTokenPayload, 
+        CONFIG_BEXS_PAY.url.get_token,
+        getTokenPayload,
         {"headers": {"content-type": "application/json"}}
     ).then((responseToken) => {
 
@@ -72,5 +72,5 @@ module.exports = (req, res) => {
     }).catch((errorToken) => {
         console.log("errorToken", errorToken.data || "Ocurred a error");
         res.redirect('/');
-    });    
+    });
 }
