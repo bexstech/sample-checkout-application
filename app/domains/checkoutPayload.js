@@ -16,7 +16,7 @@ function getForeignAmount(amount, rate) {
 }
 
 module.exports = (amount, foreign_amount_rate, description, consumer) => {
-        
+
     return {
         checkout: PAY_CHECKOUT.checkout,
         confirm: PAY_CHECKOUT.confirm,
@@ -30,7 +30,7 @@ module.exports = (amount, foreign_amount_rate, description, consumer) => {
             {
                 description: description,
                 quantity: PAY_CHECKOUT.quantity,
-                unit_price: amount
+                unit_price: parseFloat(amount)
             }
         ],
         consumer: consumer,
