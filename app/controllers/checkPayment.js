@@ -24,7 +24,7 @@ module.exports = (req, res) => {
             }else{
                 res.render('failed');
             }
-            
+
         }).catch((errorCheckoutFeedback) => {
             console.log("errorCheckoutFeedback", errorCheckoutFeedback.data || "Ocurred a error");
             res.render('failed');
@@ -36,5 +36,6 @@ module.exports = (req, res) => {
 }
 
 function paymentSuccedded(status, type){
-    return (status === "AUTHORIZED" || status === "CONFIRMED") || (status === "WAITING_CONSUMER" && type === "BANK_SLIP") 
+    return (status === "AUTHORIZED" || status === "CONFIRMED")
+      || (status === "WAITING_CONSUMER" && (type === "BANK_SLIP" || type === 'ELECTRONIC_BANK_TRANSFER'))
 }
