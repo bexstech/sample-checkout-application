@@ -1,10 +1,10 @@
 {
     "national_id": "00015262197",
-
     "id": "id_of_on_my_base",
     "full_name": "John Skywalker",
     "email": "email@adomain.com",
     "phone": "551155628932",
+    "birth_date": "1980-10-10",
     "address_country": "BRA",
     "address_region": "SP",
     "address_city": "São Paulo",
