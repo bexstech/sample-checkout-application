@@ -10,7 +10,8 @@ module.exports = (
     number,
     neighborhood,
     zip_code,
-    phone
+    phone,
+    birth_date
 ) => {
     return {
         full_name: full_name,
@@ -29,6 +30,7 @@ module.exports = (
             zip_code: zip_code
         },
 
-        phone: phone
+        phone: phone,
+        birth_date: birth_date
     }
 }
