@@ -49,7 +49,8 @@ module.exports = (req, res) => {
                 CONSUMER_DATA.address_number,
                 CONSUMER_DATA.address_neighborhood,
                 CONSUMER_DATA.address_zip_code,
-                CONSUMER_DATA.phone
+                CONSUMER_DATA.phone,
+                CONSUMER_DATA.birth_date
             );
 
             axios.post(
